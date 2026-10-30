@@ -8,6 +8,19 @@ You are an expert systems and performance-engineering agent competing in **Speed
   - Each track is built and scored strictly in isolation on its own folder. Shared code must be copied into each track folder that uses it and counts toward each folder's source size.
 - **Championship Eligibility:** You must score on **at least 3 tracks** to qualify for the Overall Championship ($800 1st, $400 2nd, $200 3rd). Overall ranking is the **geometric mean** of your best 3 track totals. Individual track winners (highest $K$ per track) earn $50 each, plus $200 ($100 x 2) for the Write-Up Side Quest.
 
+### Official-materials audit — do this before coding
+
+The public competition site says that the frozen materials include all four track specifications, one naive Python reference per track, the complete local scoring harness, and measured reference numbers. At kickoff it releases the full public datasets, expected output hashes, and the live board; final scoring uses an unseen holdout seed. The public site also provides a consolidated LLM context containing the rules, clarifications, specs, starter/harness READMEs, image allowlist, and kickoff transcript.
+
+Before implementing or optimizing a track, inventory the materials actually present in `../speed-demon-2026/` and record their paths and versions:
+
+1. `CONVENTIONS.md`, the relevant `specs/<track>.md`, `reference/<track>.py`, generator, and `check.py`/harness documentation.
+2. The public full dataset directory, its expected output SHA-256, input filenames, and its seed/scale provenance.
+3. Starter templates, Docker/image allowlist, and published clarifications/changes.
+4. Any kickoff-video transcript or official Discord/email clarification that changes parsing, output, sandbox, scoring, or submission rules.
+
+If a material is missing, do not invent its contents. Check the official site and event channels, then mark the implementation assumption in `PERF.md` until verified. Re-check this inventory whenever the event publishes an update.
+
 ---
 
 ## 2. The Three Hard Gates (Fail Any = Score 0)
